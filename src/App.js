@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React, { useState, useEffect } from "react";
+
 
 function App() {
+  const [count, setCount] = useState(2);
+  const [someState, setSomeState] = useState(false)
+
+  useEffect(() =>{
+    console.log("useeffect ici")},[count]);
+
+   useEffect(() =>{
+    console.log("useeffect ici someState");
+   },[someState]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <h1>{count}</h1>
+   
+    <button onClick={() => setCount( count + 6)} > Arttir</button>
+    <button onClick={() => setCount( count - 3)} > Azalt</button>
+    <button onClick={() => setSomeState(!someState)}>Change SomeState</button>
+    <hr></hr>
+
+
+    
     </div>
   );
 }
